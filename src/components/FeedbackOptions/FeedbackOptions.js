@@ -3,34 +3,16 @@ import PropTypes from 'prop-types';
 import s from './FeedbackOptions.module.css';
 
 function FeedbackOptions({ options, onLeaveFeedback }) {
-  return (
-    <div className={s.statBtns}>
-      <button
-        type="button"
-        name={options[0]}
-        className={s.statBtn}
-        onClick={onLeaveFeedback}
-      >
-        {options[0]}
-      </button>
-      <button
-        type="button"
-        name={options[1]}
-        className={s.statBtn}
-        onClick={onLeaveFeedback}
-      >
-        {options[1]}
-      </button>
-      <button
-        type="button"
-        name={options[2]}
-        className={s.statBtn}
-        onClick={onLeaveFeedback}
-      >
-        {options[2]}
-      </button>
-    </div>
-  );
+  return options.map(option => (
+    <button
+      type="button"
+      name={option}
+      className={s.statBtn}
+      onClick={onLeaveFeedback}
+    >
+      {option}
+    </button>
+  ));
 }
 
 FeedbackOptions.propTypes = {
